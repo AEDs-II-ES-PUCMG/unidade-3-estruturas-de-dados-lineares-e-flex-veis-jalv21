@@ -217,8 +217,20 @@ public class App {
     }
     
 	public static void main(String[] args) {
+        Pilha<Integer> pilhaTeste = new Pilha<>();
+        Integer[] matricula = {8, 4, 9, 4, 9, 0};
+        // teste empilhar
+        for(int i = 0; i < 6; i++) {
+            pilhaTeste.empilhar(matricula[i]);
+            System.out.println("Topo da pilha: " + pilhaTeste.consultarTopo());
+        }
+        System.out.println("====");
+        // teste desempilhar
+        for(int i = 0; i < 6; i++) {
+            System.out.println("Topo da pilha: " + pilhaTeste.desempilhar());
+        }
 		
-		teclado = new Scanner(System.in, Charset.forName("UTF-8"));
+		/* teclado = new Scanner(System.in, Charset.forName("UTF-8"));
         
 		nomeArquivoDados = "produtos.txt";
         produtosCadastrados = lerProdutos(nomeArquivoDados);
@@ -240,6 +252,6 @@ public class App {
             pausa();
         }while(opcao != 0);       
 
-        teclado.close();    
+        teclado.close();  */   
     }
 }
