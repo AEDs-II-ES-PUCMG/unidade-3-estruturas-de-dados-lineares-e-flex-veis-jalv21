@@ -1,6 +1,6 @@
 public class Celula<T> {
 
-	private final T item;
+	private T item;
 	private Celula<T> proximo;
 
 	public Celula() {
@@ -20,6 +20,10 @@ public class Celula<T> {
 	
 	public T getItem() {
 		return item;
+	}
+
+	public void setItem(T item) {
+		this.item = item;
 	}
 
 	public Celula<T> getProximo() {
