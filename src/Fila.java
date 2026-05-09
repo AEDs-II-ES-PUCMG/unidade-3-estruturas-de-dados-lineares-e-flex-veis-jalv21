@@ -22,7 +22,7 @@ public class Fila<E> {
     public E desenfileirar() {
         if(vazia())
             throw new IllegalStateException("A fila está vazia!");
-        
+
         E item = null;
         Celula<E> primeiro;
 
@@ -79,4 +79,15 @@ public class Fila<E> {
         return contador;
     }
     
+    public Fila<E> extrairLote(int numItens) {
+        int cont  = 0;
+
+        Fila<E> lote = new Fila<>();
+
+        while(!vazia() && cont <= numItens) {
+            lote.enfileirar(this.desenfileirar());
+        }
+        
+        return lote;
+    }
 }
