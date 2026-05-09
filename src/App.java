@@ -217,8 +217,23 @@ public class App {
     }
     
 	public static void main(String[] args) {
+        Fila<Character> fila = new Fila<>();
+        Character[] nome = {'j', 'o', 'a', 'o', 'a', 'r', 'a', 'u', 'j', 'o'};
+
+        System.out.println("Elementos enfileirados:");
+        for(int i = 0; i < nome.length; i++) {
+            fila.enfileirar(nome[i]);
+        }
+        fila.imprimir();
+    
+        System.out.println("Elementos desenfileirados:");
+        while(!fila.vazia()) {
+            fila.desenfileirar();
+            fila.imprimir();
+            System.out.println("\n-----");
+        }
 		
-		teclado = new Scanner(System.in, Charset.forName("UTF-8"));
+		/* teclado = new Scanner(System.in, Charset.forName("UTF-8"));
         
 		nomeArquivoDados = "produtos.txt";
         produtosCadastrados = lerProdutos(nomeArquivoDados);
@@ -240,6 +255,6 @@ public class App {
             pausa();
         }while(opcao != 0);       
 
-        teclado.close();    
+        teclado.close();  */   
     }
 }

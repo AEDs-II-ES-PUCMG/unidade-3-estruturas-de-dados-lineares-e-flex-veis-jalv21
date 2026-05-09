@@ -20,6 +20,9 @@ public class Fila<E> {
     }
 
     public E desenfileirar() {
+        if(vazia())
+            throw new IllegalStateException("A fila está vazia!");
+        
         E item = null;
         Celula<E> primeiro;
 
@@ -55,6 +58,25 @@ public class Fila<E> {
                 aux = aux.getProximo();
             }
         }
+    }
+
+    public int contarOcorrencias(E item) {
+        int contador = 0;
+        Celula<E> aux;
+
+        if(vazia())
+            throw new IllegalStateException("A fila está vazia!");
+        else {
+            aux = this.frente.getProximo();
+            while (aux != null) {
+                if(aux.getItem().equals(item))
+                    contador++;
+
+                aux = aux.getProximo();
+            }
+        }
+
+        return contador;
     }
     
 }
