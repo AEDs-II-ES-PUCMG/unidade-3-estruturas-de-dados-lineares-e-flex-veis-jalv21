@@ -226,12 +226,9 @@ public class App {
         }
         fila.imprimir();
     
-        System.out.println("Elementos desenfileirados:");
-        while(!fila.vazia()) {
-            fila.desenfileirar();
-            fila.imprimir();
-            System.out.println("\n-----");
-        }
+        Character caracterContado = 'o';
+        int ocorrencias = fila.contarOcorrencias(caracterContado);
+        System.out.printf("O caracter '%c' aparece %d vezes no nome.", caracterContado, ocorrencias);
 		
 		/* teclado = new Scanner(System.in, Charset.forName("UTF-8"));
         
