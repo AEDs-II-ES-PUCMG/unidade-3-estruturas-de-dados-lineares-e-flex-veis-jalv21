@@ -21,6 +21,9 @@ public class App {
 
     /** Pilha de pedidos */
     static Pilha<Pedido> pilhaPedidos = new Pilha<>();
+
+    /** Fila de pedidos */
+    static Fila<Pedido> filaPedidos = new Fila<>();
         
     static void limparTela() {
         System.out.print("\033[H\033[2J");
@@ -207,30 +210,21 @@ public class App {
      * @param pedido O pedido que deve ser finalizado.
      */
     public static void finalizarPedido(Pedido pedido) {
+        filaPedidos.enfileirar(pedido);
     	
     	// TODO
     }
     
     public static void listarProdutosPedidosRecentes() {
-    	
+        while(!filaPedidos.vazia()) {
+    	    Pedido atual = filaPedidos.desenfileirar();
+            System.out.println(atual.toString());
+        }
     	// TODO
     }
     
 	public static void main(String[] args) {
-        Fila<Character> fila = new Fila<>();
-        Character[] nome = {'j', 'o', 'a', 'o', 'a', 'r', 'a', 'u', 'j', 'o'};
-
-        System.out.println("Elementos enfileirados:");
-        for(int i = 0; i < nome.length; i++) {
-            fila.enfileirar(nome[i]);
-        }
-        fila.imprimir();
-    
-        Character caracterContado = 'o';
-        int ocorrencias = fila.contarOcorrencias(caracterContado);
-        System.out.printf("O caracter '%c' aparece %d vezes no nome.", caracterContado, ocorrencias);
-		
-		/* teclado = new Scanner(System.in, Charset.forName("UTF-8"));
+		teclado = new Scanner(System.in, Charset.forName("UTF-8"));
         
 		nomeArquivoDados = "produtos.txt";
         produtosCadastrados = lerProdutos(nomeArquivoDados);
@@ -252,6 +246,6 @@ public class App {
             pausa();
         }while(opcao != 0);       
 
-        teclado.close();  */   
+        teclado.close();    
     }
 }
